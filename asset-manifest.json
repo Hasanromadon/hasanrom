@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Hasanromadon/my-bio/static/css/main.2749150f.css",
+    "main.js": "/Hasanromadon/my-bio/static/js/main.56fc48d4.js",
+    "static/js/787.e3835ec5.chunk.js": "/Hasanromadon/my-bio/static/js/787.e3835ec5.chunk.js",
+    "static/media/project-pasarpolis.png": "/Hasanromadon/my-bio/static/media/project-pasarpolis.2134c1b5c9b7c86fc3c9.png",
+    "static/media/project-findromah.png": "/Hasanromadon/my-bio/static/media/project-findromah.3e2a769686ac9981aa2a.png",
+    "static/media/ornamen.jpg": "/Hasanromadon/my-bio/static/media/ornamen.34e9526ab2b488d1761e.jpg",
+    "static/media/hero-bg-image.png": "/Hasanromadon/my-bio/static/media/hero-bg-image.63e8a64d9d73d2781214.png",
+    "index.html": "/Hasanromadon/my-bio/index.html",
+    "main.2749150f.css.map": "/Hasanromadon/my-bio/static/css/main.2749150f.css.map",
+    "main.56fc48d4.js.map": "/Hasanromadon/my-bio/static/js/main.56fc48d4.js.map",
+    "787.e3835ec5.chunk.js.map": "/Hasanromadon/my-bio/static/js/787.e3835ec5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2749150f.css",
+    "static/js/main.56fc48d4.js"
+  ]
+}
