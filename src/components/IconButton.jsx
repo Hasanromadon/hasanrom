@@ -7,7 +7,7 @@ const IconButton = ({label, onClick }) => {
         className="flex items-center justify-center px-4 py-2 border rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
         onClick={onClick}
       >
-        <img className="mr-2" src={emailIcon} alt=""/>
+        <img width={20} height={20} className="mr-2" src={emailIcon} alt=""/>
         {label}
       </button>
     );

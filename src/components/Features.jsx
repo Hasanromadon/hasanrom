@@ -31,7 +31,7 @@ const Features = () => {
     <Section title="What I Can Do">
       <div className="grid sm:grid-cols-3 gap-12 sm:gap-4 mt-20">
         {points.map(({ icon, title, content }) => (
-          <Card icon={icon} title={title} content={content} />
+          <Card key={title} icon={icon} title={title} content={content} />
         ))}
       </div>
     </Section>

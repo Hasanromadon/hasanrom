@@ -6,7 +6,7 @@ const CardAdvantage = ({
   return (
     <div className="flex rounded-lg px-6 pt-10 pb-6 w-full">
         <div className="w-36 mr-5" >
-            <img src={icon} alt='' className='w-10' />
+            <img src={icon} alt='' className='w-12' />
         </div>
         <div>
         <h2 className="text-xl font-semibold mb-2">{title}</h2>

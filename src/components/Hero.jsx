@@ -17,7 +17,7 @@ const Hero = () => {
       <div>
         <div className="relative z-20 bg-white rounded-2xl">
           <div className="absolute -top-4 -left-4">
-            <img src={quote} alt="" />
+            <img width={40} height={40} src={quote} alt="" />
           </div>
           <div className="bg-white block px-4 py-6 rounded-2xl">
             <p>
