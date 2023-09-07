@@ -4,18 +4,20 @@ import Features from '../components/Features';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Advantages from '../components/Advantages';
-import Footer from '../components/Footer';
+import Wrapper from '../components/Wrapper';
 
 const About = () => {
   return (
-    <><main className="container">
-      <Hero />
-      <Features />
-      <Projects />
-      <Contact />
-      <Advantages />
-    </main><Footer /></>
-  )
+    <Wrapper>
+      <main>
+        <Hero />
+        <Features />
+        <Projects />
+        <Contact />
+        <Advantages />
+      </main>
+    </Wrapper>
+  );
 }
 
 export default About

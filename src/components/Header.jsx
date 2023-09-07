@@ -1,22 +1,66 @@
-import { Fragment } from "react";
+import { useEffect, useRef } from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
+import { NavLink, useNavigate } from "react-router-dom";
+import gsap, { Power2 } from "gsap";
 
 const navigation = [
-  { name: "About", href: "#", current: true },
-  { name: "Blog", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "About", href: "/" },
+  { name: "Blog", href: "/blog" },
+  { name: "Projects", href: "/projects" },
+  {
+    name: "Contact",
+    href: "/contacts",
+    action: () => (window.location.href = "mailto:hsanromadon@gmail.com"),
+  },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header() {
+const Header = () => {
+  const logoRef = useRef(null);
+  const linkRef = useRef(null);
+
+  const animateHeaderLeft = () => {
+    gsap.fromTo(
+      logoRef.current,
+      {
+        transform: "translateX(-200px)",
+      },
+      {
+        transform: "translateX(0)",
+        duration: 1,
+        ease: Power2.easeInOut,
+      }
+    );
+  };
+
+  const animateHeaderRight = () => {
+    gsap.fromTo(
+      linkRef.current,
+      {
+        transform: "translateX(200px)",
+      },
+      {
+        transform: "translateX(0)",
+        duration: 1,
+        ease: Power2.easeInOut,
+      }
+    );
+  };
+
+  useEffect(() => {
+    animateHeaderLeft();
+    animateHeaderRight();
+  }, []);
+
+  const navigate = useNavigate();
+
   return (
-    <Disclosure as="nav">
+    <Disclosure className="overflow-hidden" as="nav">
       {({ open }) => (
         <>
           <div className="mx-auto px-2 py-4 sm:px-6 lg:px-8">
@@ -34,29 +78,33 @@ export default function Header() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div ref={logoRef} className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-8 w-auto"
+                    onClick={() => navigate("/")}
+                    className="h-8 w-auto cursor-pointer "
                     src={logo}
                     alt="Hasan Romadon logo"
                   />
                 </div>
               </div>
-              <div className="hidden sm:block absolute inset-y-0 right-0  items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div ref={linkRef} className="hidden sm:block absolute inset-y-0 right-0  items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {navigation.map((item) => (
-                  <a
+                  <NavLink
                     key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "text-blue-500"
-                        : "text-gray-300 hover:text-blue-500",
-                      "rounded-md px-3 py-2 text-sm font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
+                    to={
+                      item.action ? "mailto:hsanromadon@gmail.com" : item.href
+                    }
+                    className={({ isActive }) =>
+                      classNames(
+                        isActive
+                          ? "text-blue-500"
+                          : "text-gray-300 hover:text-blue-500",
+                        "rounded-md px-3 py-2 text-sm font-medium"
+                      )
+                    }
                   >
                     {item.name}
-                  </a>
+                  </NavLink>
                 ))}
               </div>
             </div>
@@ -65,19 +113,22 @@ export default function Header() {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
+                <Disclosure.Button key={item.name} as="span">
+                  <NavLink
+                    to={
+                      item.action ? "mailto:hsanromadon@gmail.com" : item.href
+                    }
+                    className={({ isActive }) =>
+                      classNames(
+                        isActive
+                          ? "text-blue-500"
+                          : "text-gray-300 hover:text-blue-500",
+                        "block rounded-md px-3 py-2 text-base font-medium"
+                      )
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
                 </Disclosure.Button>
               ))}
             </div>
@@ -86,4 +137,6 @@ export default function Header() {
       )}
     </Disclosure>
   );
-}
+};
+
+export default Header;

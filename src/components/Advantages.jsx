@@ -23,7 +23,7 @@ const advantages = [{
 
 const Advantages = () => {
   return (
-    <div className='my-16'>
+    <div className='container my-16'>
         <h4 className='text-2xl sm:text-center font-semibold'>Why Hire Me</h4>
     <div className='grid sm:grid-cols-3 sm:gap-8'>
         {advantages.map(({icon, title, content})=> <CardAdvantage key={title} icon={icon} title={title} content={content}/>)}

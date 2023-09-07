@@ -1,0 +1,109 @@
+import React from "react";
+import Wrapper from "../Wrapper";
+import smallThumbnail from '../../assets/blog/small-thumbnail.png';
+import MoreArticle from "./MoreArticle";
+import calenderIcon from '../../assets/calender-icon.png';
+import { useParams } from "react-router-dom";
+import { blogArticle } from "../../model/blogData";
+
+
+const BlogDetail = () => {
+  const {id} = useParams();
+  const selectedArticle = blogArticle.find((article)=> article.id === id);
+  const image = require(`../../assets/blog/${selectedArticle.image}`);
+
+  return (
+    <Wrapper withBackground={false}>
+      <div className="container">
+        <div className="max-w-3xl mx-auto">
+          <h4 className=" text-lg sm:text-3xl font-semibold my-2 sm:my-4">
+            {selectedArticle.title}
+          </h4>
+          <div className='flex items-center mb-5'><img className='inline-block mr-2' width={14} height={14} src={calenderIcon} alt=''/><span className='text-sm text-neutral-600'>{selectedArticle.publishedDate}</span></div>
+          <img src={image} className="w-full sm:h-96 object-contain sm:object-cover"  alt=""/>
+          <p className="mt-8 text-base">
+            In the realm of web development, where innovation and creativity
+            thrive, having a noteworthy online presence is a necessity. A
+            well-crafted developer portfolio isn't just a compilation of
+            projects; it's a dynamic showcase of your skills, your passion, and
+            your potential to create digital magic. In this article, we'll dive
+            into the art of building an impressive developer portfolio that not
+            only highlights your expertise but also leaves a lasting impact on
+            anyone who visits it.
+          </p>
+          <h5 className=" sm:text-xl font-semibold mt-4">
+            1. Setting the Stage: Crafting an Engaging Layout
+          </h5>
+          <p>
+            Imagine your developer portfolio as a digital art gallery, each
+            project a masterpiece waiting to be admired. To truly elevate your
+            web presence, start with a captivating layout. Opt for a design
+            that's clean, intuitive, and aligns with your personal style. A
+            responsive layout ensures that your portfolio shines on screens of
+            all sizes, providing a seamless experience to every visitor.
+          </p>
+          <h5 className=" sm:text-xl font-semibold mt-4">
+            2. Beyond Code: Unveiling Your Creative Journey
+          </h5>
+          <p>
+            Your portfolio isn't just about lines of code; it's about telling a
+            story. Your story. Use your portfolio to walk visitors through your
+            journey into the world of web development. Share your inspirations,
+            challenges, and triumphs. This personal touch transforms your
+            portfolio from a mere collection of projects into a narrative that
+            engages and resonates.
+          </p>
+          <h5 className=" sm:text-xl font-semibold mt-4">
+            3. The Symphony of Projects: Showcasing Your Expertise
+          </h5>
+          <p>
+            Diversity is the key to an impressive developer portfolio. Each
+            project you include adds another layer to the symphony of your
+            skills. From personal experiments to client collaborations, present
+            a range of projects that showcase your mastery of various
+            technologies, languages, and frameworks. A variety of projects also
+            highlights your adaptability—a trait highly valued in the dynamic
+            field of web development.
+          </p>
+          <h5 className="sm:text-xl font-semibold mt-4">
+            4. The Power of Progress: Highlighting Growth
+          </h5>
+          <p>
+            Your developer portfolio isn't just a snapshot of where you are;
+            it's a journey that illustrates how far you've come. Include a
+            section that chronicles your progression, from your early projects
+            to your current endeavors. This not only reveals your dedication to
+            growth but also provides a visual testament to your evolution as a
+            developer.
+          </p>
+          <h5 className="sm:text-xl font-semibold mt-4">
+            5. Constant Evolution: Keeping Your Portfolio Current
+          </h5>
+          <p>
+            A developer's journey is one of perpetual learning and growth. Your
+            portfolio should reflect that. Regularly update your showcase with
+            new projects, skills you've acquired, and the latest technologies
+            you've mastered. An up-to-date portfolio isn't just a testament to
+            your dedication; it also demonstrates your commitment to staying at
+            the forefront of the ever-evolving web development landscape.
+          </p>
+          <p className="mt-8">
+            In conclusion, an impressive developer portfolio goes beyond the
+            surface, revealing your journey, your skills, and your unique
+            approach to web development. By thoughtfully curating projects,
+            showcasing growth, emphasizing problem-solving, and blending code
+            with design, you can create a digital masterpiece that resonates
+            with potential clients, collaborators, and employers alike. Elevate
+            your web presence, and let your developer portfolio be a true
+            reflection of your passion and prowess in the art of web
+            development.
+          </p>
+          {/* more aticle */}
+          <MoreArticle/>
+        </div>
+      </div>
+    </Wrapper>
+  );
+};
+
+export default BlogDetail;

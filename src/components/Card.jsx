@@ -4,7 +4,7 @@ const Card = ({
   icon, title, content
 }) => {
   return (
-    <div className="relative bg-white rounded-lg px-6 pt-10 pb-6 shadow-lg shadow-slate-100 ">
+    <div className="relative bg-white rounded-lg px-6 pt-10 pb-6 shadow-lg shadow-slate-100 hover:shadow-slate-300">
         <div className='absolute -top-6 left-6'>
             <img src={icon} alt='' className='w-12' />
         </div>

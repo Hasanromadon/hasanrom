@@ -3,7 +3,7 @@ import footerOrnamen from "../assets/footer-ornamen.png";
 
 const Footer = () => {
   return (
-    <footer className=" bg-white py-8 ">
+    <footer className=" bg-white py-8 mt-10">
       <div className="flex justify-between items-center container">
         <p className="">
           <span>
