@@ -1,21 +1,37 @@
-import React from 'react';
+import React from "react";
 
 const PortfolioLinks = ({ links }) => {
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold mb-2">Portfolio Links</h2>
-      <ul className="list-disc list-inside">
-        {links.map((link, index) => (
-          <li key={index}>
-            <span className='mr-8'>{link.title}</span>
-            <a href={link.demo} target='_blank' className="text-blue-500 mr-4 hover:underline" rel="noreferrer">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {links.map((link) => (
+        <div
+          key={link.title}
+          className="border rounded-xl p-5 shadow-md hover:shadow-lg transition duration-200 bg-white"
+        >
+          <h2 className="text-lg font-semibold text-gray-800">{link.title}</h2>
+          <p className="text-sm text-gray-600 mt-2">{link.description}</p>
+          <div className="flex gap-4 mt-4">
+            <a
+              href={link.demo}
+              className="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
               Live Demo
-            </a><a href={link.github} target='_blank' className="text-blue-500 hover:underline" rel="noreferrer">
-              Github
             </a>
-          </li>
-        ))}
-      </ul>
+            {link.github && (
+              <a
+                href={link.github}
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
